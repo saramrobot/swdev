@@ -10,9 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.saramrobot.swdev.model.NoteVO;
 import com.saramrobot.swdev.service.NoteService;
 
 /**
@@ -36,4 +39,9 @@ public class HomeController {
 		return "notelist";
 	}
 	
+	@RequestMapping(value = "/notes", method = RequestMethod.POST)
+	public String newnote(@ModelAttribute("NoteVO") NoteVO noteVO, RedirectAttributes rttr) throws Exception {
+		noteService.insertNote(noteVO);
+		return "redirect:/";
+	}
 }

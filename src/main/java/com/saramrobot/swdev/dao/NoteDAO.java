@@ -7,4 +7,6 @@ import com.saramrobot.swdev.model.NoteVO;
 public interface NoteDAO {
 
 	public List<NoteVO> getNoteList() throws Exception;
+	
+	public int insertNote(NoteVO noteVO) throws Exception;
 }

@@ -26,8 +26,8 @@ public class NoteDAOTest {
 	@Inject
 	private NoteDAO noteDAO;
 	
-	@Test 
-	public void testGetBoardList() throws Exception {
+	@Test @Ignore
+	public void testGetNoteList() throws Exception {
 		List<NoteVO> noteList = noteDAO.getNoteList();
 		logger.info("\n Board List \n " );
 		if(noteList.size() > 0) {
@@ -36,6 +36,21 @@ public class NoteDAOTest {
 			}
 		} else {
 			logger.info("데이터가 없습니다.");
+		}
+	}
+	
+	@Test 
+	public void testInsertNote() throws Exception {
+		NoteVO noteVO = new NoteVO();
+		noteVO.setN_uid(0);
+		noteVO.setN_text("Test1");
+		
+		int result = noteDAO.insertNote(noteVO);
+		logger.info("\n Insert Board Result " +result);
+		if(result == 1) {
+			logger.info("\n 게시물 등록 성공 ");
+		} else {
+			logger.info("\n 게시물 등록 실패");
 		}
 	}
 }

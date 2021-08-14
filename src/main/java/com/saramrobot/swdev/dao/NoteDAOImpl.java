@@ -21,4 +21,8 @@ public class NoteDAOImpl implements NoteDAO {
 		return sqlSession.selectList("com.saramrobot.swdev.noteMapper.getNoteList");
 	}
 
+	@Override
+	public int insertNote(NoteVO noteVO) throws Exception {
+		return sqlSession.insert("com.saramrobot.swdev.noteMapper.insertNote", noteVO);
+	}
 }

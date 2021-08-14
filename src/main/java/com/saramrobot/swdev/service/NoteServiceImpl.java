@@ -19,5 +19,8 @@ public class NoteServiceImpl implements NoteService {
 		return noteDAO.getNoteList();
 	}
 
-
+	@Override
+	public void insertNote(NoteVO noteVO) throws Exception {
+		noteDAO.insertNote(noteVO);
+	}
 }

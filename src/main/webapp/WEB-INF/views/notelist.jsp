@@ -8,7 +8,10 @@
 </head>
 <body>
 <h2>Note</h2>
-
+<form name="text" method="post" action="notes">
+<textarea rows="5" name="n_text" id="n_text" placeholder="내용을 입력해 주세요" ></textarea><br>
+<input type="submit" value="add">
+</form>
 	<table>
 		<colgroup>
 			<col style="width:5%;" />

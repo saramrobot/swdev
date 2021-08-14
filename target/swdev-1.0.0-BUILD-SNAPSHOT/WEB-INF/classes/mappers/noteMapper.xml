@@ -9,5 +9,11 @@
 			n_uid, n_text
 		FROM
 			note
+		ORDER BY n_uid DESC
 	</select>
+	
+	<insert id="insertNote" parameterType="com.saramrobot.swdev.model.NoteVO">
+		INSERT INTO note (n_text)
+		VALUES (#{n_text})
+	</insert>
 </mapper>
